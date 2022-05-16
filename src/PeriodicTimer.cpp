@@ -9,7 +9,7 @@
 // someone resets it.
 //
 // Note that interval is set in full seconds, but the state of this object
-// is checked 10 times a second.
+// is updated 10 times a second.
 PeriodicTimer::PeriodicTimer() : StateMachine(100, true),
     m_period(0), m_remaining(0), m_substep(0),
     m_alarm(false)
