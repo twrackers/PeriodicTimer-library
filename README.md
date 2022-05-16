@@ -12,4 +12,4 @@ The `PeriodicTimer` library itself depends on the `StateMachine` library.
 
 ## Installation ##
 
-Instructions for installing the `PeriodicTimer` library will be found in file `INSTALL.md`, currently being prepared.
+Instructions for installing the `PeriodicTimer` library can be found in file `INSTALL.md`in this repository at [https://github.com/twrackers/PeriodicTimer-library/blob/main/INSTALL.md](https://github.com/twrackers/PeriodicTimer-library/blob/main/INSTALL.md).
