@@ -17,7 +17,7 @@ PeriodicTimer::PeriodicTimer() : StateMachine(100, true),
 }
 
 // Performs the update cycle for this object.
-virtual bool PeriodicTimer::update()
+bool PeriodicTimer::update()
 {
     // Time to update?
     if (StateMachine::update()) {
