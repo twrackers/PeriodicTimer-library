@@ -19,28 +19,22 @@ PeriodicTimer::PeriodicTimer() : StateMachine(100, true),
 // Performs the update cycle for this object.
 bool PeriodicTimer::update()
 {
-    // Time to update?
-    if (StateMachine::update()) {
-        // Is timer running?
-        if (m_period > 0) {
-            // Have we counted down a whole second?
-            if (--m_substep == 0) {
-                // If so, decrement remaining time in seconds,
-                // and test if that completes alarm interval.
-                m_substep = 10;
-                // Has remaining time reached zero?
-                if (--m_remaining == 0) {
-                    // If so, set alarm state and restart timing interval.
-                    m_alarm = true;
-                    m_remaining = m_period;
-                }
-            }
+    // Return now if not time to update.
+    if (!StateMachine::update()) return false;
+    
+    // Is timer running and we've counted down a whole second?
+    if ((m_period > 0) && (--m_substep == 0)) {
+        // If so, decrement remaining time in seconds,
+        // and test if that completes alarm interval.
+        // Has remaining time reached zero?
+        if (--m_remaining == 0) {
+            // If so, set alarm state and restart timing interval.
+            m_alarm = true;
+            m_remaining = m_period;
         }
-        // Was updated.
-        return true;
+        m_substep = 10;
     }
-    // No update now.
-    return false;
+    return true;
 }
 
 // Start timer with a period specified in seconds.
